@@ -1,16 +1,70 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Calculatrice en JavaScript</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table{
+                margin: 0 auto;
+            }
+        </style>
+        
     </head>
     <body>
-        <h1>Une calculatrice simple en Javascript</h1>
+        <header>
+            <h1>Une calculatrice simple en Javascript</h1>
+        </header>
+        <main> 
+            <noscript style='color:red;'>Cette calculatrice ne fonctionnera pas si vous n'activez pas le JavaScript dans votre navigateur.  </noscript>
+            <table border="1">
+                <tr>
+                    <td colspan="4">
+                        <input type="text" id="result" value='0' autofocus />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div id="message"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                <button class="btn command">CE</button>
+            </td>
+                    <td></td>
+                    <td>  </td>
+                    <td><button class="btn command">/</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn"> 7</button></td>
+                    <td><button class="btn">8 </button></td>
+                    <td><button class="btn"> 9</button></td>
+                    <td><button class="btn command"> *</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn">4 </button></td>
+                    <td><button class="btn">5 </button></td>
+                    <td><button class="btn">6 </button></td>
+                    <td><button class="btn command">- </button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn">1 </button></td>
+                    <td><button class="btn">2 </button></td>
+                    <td><button class="btn">3 </button></td>
+                    <td><button class="btn command">+ </button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button class="btn">0</button></td>
+                    <td><button class="btn">, </button></td>
+                    <td><button class="btn command">= </button></td>
+                </tr>
+            </table>
+        </main>
+        <footer>
+            <p>&copy; Albertal Jean-Pierre  </p>
+        </footer>
     </body>
 </html>
