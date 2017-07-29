@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="style.css" type="text/css">
+
         <style>
             table{
                 margin: 0 auto;
@@ -19,14 +21,19 @@
         <main> 
             <noscript style="color:red;">Cette calculatrice ne fonctionnera pas si vous n'activez pas le JavaScript dans votre navigateur.  </noscript>
             <table class="calculatrice">
-                 <tr>
+                <tr>
                     <td colspan="4">
-                        <div id="message" class='message'></div>
+                        <div id="calcul" class='calcul'></div>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="4">
                         <input type="text" id="result" autofocus class='result'/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div id="message" class='message'></div>
                     </td>
                 </tr>
                 <tr>
@@ -65,20 +72,23 @@
             </table>
         </main>
         <footer>
-            <p>&copy; Albertal Jean-Pierre  - Août 2017</p>
+
             <p class="note"><span class='souligne'>Note de développement :</span>  Attention j'ai volontairement omis l'implémentation de <code>attachEvent </code>  pour la compatibilité avec Internet Explorer. Si vous voulez que cela fonctionne correctement utiliser un navigateur respectueux des standards du W3C comme Firefox ou Chrome. </p>
+            <h2>Bug</h2>
+            <ul>
+                <li>Si un tres grand nombre est afficher, il n'affiche pas les nombres à droite mais s'arrete à l'affiche à gauche.</li>
+                <li></li>
+            </ul>
+            <p>&copy; Albertal Jean-Pierre  - Août 2017</p>
         </footer>
         <script src="js/fonctions.js" type="text/javascript"></script>
         <script>
-            
-//            function reset() {
-//
-//                alert("reset");
-//            }
+
+
 //            event.preventDefault();
-            window.addEventListener('load', reset() );
-        
+            window.addEventListener('load', reset(), true);
+
         </script>
-        
+
     </body>
 </html>
