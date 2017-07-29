@@ -4,67 +4,81 @@
         <title>Calculatrice en JavaScript</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css" />
         <style>
             table{
                 margin: 0 auto;
             }
         </style>
-        
+
     </head>
     <body>
         <header>
             <h1>Une calculatrice simple en Javascript</h1>
         </header>
         <main> 
-            <noscript style='color:red;'>Cette calculatrice ne fonctionnera pas si vous n'activez pas le JavaScript dans votre navigateur.  </noscript>
-            <table border="1">
-                <tr>
+            <noscript style="color:red;">Cette calculatrice ne fonctionnera pas si vous n'activez pas le JavaScript dans votre navigateur.  </noscript>
+            <table class="calculatrice">
+                 <tr>
                     <td colspan="4">
-                        <input type="text" id="result" value='0' autofocus />
+                        <div id="message" class='message'></div>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <div id="message"></div>
+                        <input type="text" id="result" autofocus class='result'/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                <button class="btn command">CE</button>
-            </td>
+                        <button class="btn command" id="ce">CE</button>
+                    </td>
                     <td></td>
                     <td>  </td>
-                    <td><button class="btn command">/</button></td>
+                    <td><button class="btn command" id="divide">/</button></td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="btn"> 7</button></td>
-                    <td><button class="btn">8 </button></td>
-                    <td><button class="btn"> 9</button></td>
-                    <td><button class="btn command"> *</button></td>
+                        <button class="btn" id='num7'>7</button></td>
+                    <td><button class="btn" id='num8'>8 </button></td>
+                    <td><button class="btn" id='num9'> 9</button></td>
+                    <td><button class="btn command" id='multiply'>*</button></td>
                 </tr>
                 <tr>
-                    <td><button class="btn">4 </button></td>
-                    <td><button class="btn">5 </button></td>
-                    <td><button class="btn">6 </button></td>
-                    <td><button class="btn command">- </button></td>
+                    <td><button class="btn" id='num4'>4 </button></td>
+                    <td><button class="btn" id='num5'>5 </button></td>
+                    <td><button class="btn" id='num6'>6 </button></td>
+                    <td><button class="btn command" id="less">-</button></td>
                 </tr>
                 <tr>
-                    <td><button class="btn">1 </button></td>
-                    <td><button class="btn">2 </button></td>
-                    <td><button class="btn">3 </button></td>
-                    <td><button class="btn command">+ </button></td>
+                    <td><button class="btn" id='num1'>1 </button></td>
+                    <td><button class="btn" id='num2'>2 </button></td>
+                    <td><button class="btn" id='num3'>3 </button></td>
+                    <td><button class="btn command" id="more">+</button></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><button class="btn">0</button></td>
+                    <td><button class="btn" id='num0'>0</button></td>
                     <td><button class="btn">, </button></td>
                     <td><button class="btn command">= </button></td>
                 </tr>
             </table>
         </main>
         <footer>
-            <p>&copy; Albertal Jean-Pierre  </p>
+            <p>&copy; Albertal Jean-Pierre  - Août 2017</p>
+            <p class="note"><span class='souligne'>Note de développement :</span>  Attention j'ai volontairement omis l'implémentation de <code>attachEvent </code>  pour la compatibilité avec Internet Explorer. Si vous voulez que cela fonctionne correctement utiliser un navigateur respectueux des standards du W3C comme Firefox ou Chrome. </p>
         </footer>
+        <script src="js/fonctions.js" type="text/javascript"></script>
+        <script>
+            
+//            function reset() {
+//
+//                alert("reset");
+//            }
+//            event.preventDefault();
+            window.addEventListener('load', reset() );
+        
+        </script>
+        
     </body>
 </html>
