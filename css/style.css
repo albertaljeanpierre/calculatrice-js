@@ -1,0 +1,44 @@
+
+/* 
+    Created on : 29 juil. 2017, 14:38:19
+    Author     : Albertal Jean-Pierre 
+*/
+
+.calculatrice {
+    background-color: #DDD;
+}
+   
+.result {
+    text-align: right;
+    padding-right: 5px;
+}
+.btn {
+    text-align: center;
+    background-color: lightblue;
+    color: #000;
+    width: 30px;
+    height: 30px;
+    border: 1px transparent;
+}
+.btn:hover {
+    background-color: lightskyblue;
+    border: 1px lightgreen outset;
+}
+.btn:active {
+    border: 1px lightgreen inset;
+}
+
+
+.note {
+    border: 3px crimson dashed;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.note .souligne {
+    border-bottom: 1px solid #000;
+}
+
+
+
+/*un commantaire ajouté*/
