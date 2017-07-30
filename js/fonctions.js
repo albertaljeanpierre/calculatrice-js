@@ -17,6 +17,7 @@ var less = document.getElementById('less');
 var more = document.getElementById('more');
 var ce = document.getElementById('ce');
 var calcul = document.getElementById('calcul');
+var equal = document.getElementById('equal');
 var operateur = ['+', '-', '*', '/'];
 var clickOperator = false;
 
@@ -35,15 +36,13 @@ function reset(valeur) {
         console.log(e.name + ": " + e.message); // on passe les caractéristiques de l'exception à un gestionnaire d'erreur
         reset(null);
     }
-    
+
     if (valeur !== 0) {
         result.value = valeur;
     } else if (valeur === null) {
         result.value = valeur;
         alert('null');
-    }
-    
-    else {
+    } else {
         result.value = '0';
     }
 
@@ -69,13 +68,33 @@ function addNum(num) {
     clickOperator = false;
 }
 
-// Ajoute l'opérante au calcul
+// Ajoute l'opérateur au calcul
 function addOperante(operator) {
     var operante = result.value;
 // insert les noeuds résultants dans le DOM à la position Juste à l'intérieur de l'élément, après son dernier enfant.
     calcul.insertAdjacentHTML('beforeend', operante + ' ' + operator);
 }
 
+// Effectue un calclul et affiche le resultat
+function Calcul(operante = null) {
+    // récupère le calcul sous forme d'une experssion se terminant par un operateur.
+    var expressionOperator = calcul.textContent;
+    if (operante !== null) { // pour optenir le calcule total
+        var expression = expressionOperator + operante;
+        var total = eval(expression);
+        result.value = total;
+    } else { // retourne un calcul partiel. 
+
+        if (expressionOperator !== '') {
+            // retire le dernier caractère l'opérateur
+            var expression = expressionOperator.substr(0, expressionOperator.length - 1);
+            var total = eval(expression);
+            result.value = total;
+        }
+
+}
+
+}
 
 //définition des évenement
 
@@ -125,6 +144,16 @@ num0.addEventListener('click', function () {
 more.addEventListener('click', function () {
     addOperante('+');
     clickOperator = true;
+    Calcul();
 }
 );
+equal.addEventListener('click', function () {
+    var operante = result.value;
+    Calcul(operante);
+    calcul.textContent = '';
+    clickOperator = true;
+
+}
+);
+
 
