@@ -16,68 +16,115 @@ var divide = document.getElementById('divide');
 var less = document.getElementById('less');
 var more = document.getElementById('more');
 var ce = document.getElementById('ce');
+var calcul = document.getElementById('calcul');
+var operateur = ['+', '-', '*', '/'];
+var clickOperator = false;
+
 
 
 
 
 //définition des fontions 
+// Effectue une remise à zéro de la derniére opérante écrite
+function reset(valeur) {
+    try {
+        if (valeur === undefined) {
+            throw new Error("Cette fonction demande un paramêtre obligatoire");
+        }
+    } catch (e) {
+        console.log(e.name + ": " + e.message); // on passe les caractéristiques de l'exception à un gestionnaire d'erreur
+        reset(null);
+    }
+    
+    if (valeur !== 0) {
+        result.value = valeur;
+    } else if (valeur === null) {
+        result.value = valeur;
+        alert('null');
+    }
+    
+    else {
+        result.value = '0';
+    }
 
-function reset() {
-
-    result.value = '0';
+    result.value = valeur;
 }
-function add(num) {
-   
-    if (result.value == 0) {
+
+// Ajoute un chiffre à l'opérante
+function addNum(num) {
+    if (result.value === '0') {
         var operante = '';
+        var newOperante = operante + num;
+        result.value = newOperante;
+    } else if (clickOperator === true) { // si un operateur est sélectionner
+        var operante = result.value;
+        reset(null);
+        result.value = num;
     } else {
         var operante = result.value;
+        var newOperante = operante + num;
+        result.value = newOperante;
     }
-var newOperante = operante + num;
-result.value = newOperante; 
+
+    clickOperator = false;
 }
+
+// Ajoute l'opérante au calcul
+function addOperante(operator) {
+    var operante = result.value;
+// insert les noeuds résultants dans le DOM à la position Juste à l'intérieur de l'élément, après son dernier enfant.
+    calcul.insertAdjacentHTML('beforeend', operante + ' ' + operator);
+}
+
 
 //définition des évenement
 
-ce.addEventListener('click', reset);
-num9.addEventListener('click', function()  {
-    add('9');
+ce.addEventListener('click', function () {
+    reset(0);
+});
+num9.addEventListener('click', function () {
+    addNum('9');
 }
 );
-num8.addEventListener('click', function()  {
-    add('8');
+num8.addEventListener('click', function () {
+    addNum('8');
 }
 );
-num7.addEventListener('click', function()  {
-    add('7');
+num7.addEventListener('click', function () {
+    addNum('7');
 }
 );
-num6.addEventListener('click', function()  {
-    add('6');
+num6.addEventListener('click', function () {
+    addNum('6');
 }
 );
-num5.addEventListener('click', function()  {
-    add('5');
+num5.addEventListener('click', function () {
+    addNum('5');
 }
 );
-num4.addEventListener('click', function()  {
-    add('4');
+num4.addEventListener('click', function () {
+    addNum('4');
 }
 );
-num3.addEventListener('click', function()  {
-    add('3');
+num3.addEventListener('click', function () {
+    addNum('3');
 }
 );
-num2.addEventListener('click', function()  {
-    add('2');
+num2.addEventListener('click', function () {
+    addNum('2');
 }
 );
-num1.addEventListener('click', function()  {
-    add('1');
+num1.addEventListener('click', function () {
+    addNum('1');
 }
 );
-num0.addEventListener('click', function()  {
-    add('0');
+num0.addEventListener('click', function () {
+    addNum('0');
+}
+);
+more.addEventListener('click', function () {
+    addOperante('+');
+    clickOperator = true;
 }
 );
 

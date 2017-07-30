@@ -3,6 +3,12 @@
     Created on : 29 juil. 2017, 14:38:19
     Author     : Albertal Jean-Pierre 
 */
+html {
+    box-sizing: border-box;
+}
+*:before,  *:after {
+    box-sizing: inherit;
+}
 
 .calculatrice {
     background-color: #DDD;
@@ -16,9 +22,10 @@
     text-align: center;
     background-color: lightblue;
     color: #000;
-    width: 30px;
-    height: 30px;
+    min-width: 40px;
+    min-height: 40px;
     border: 1px transparent;
+    font-size: 1.3em;
 }
 .btn:hover {
     background-color: lightskyblue;
@@ -27,8 +34,15 @@
 .btn:active {
     border: 1px lightgreen inset;
 }
+.command {
+    font-size: 1em;
+}
 
 
+.calcul {
+    font-size: x-small;
+    text-align: right;
+}
 .note {
     border: 3px crimson dashed;
     width: 80%;
